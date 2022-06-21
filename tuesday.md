@@ -1,106 +1,37 @@
-## 09:00 - 09:15 - Conference day 1 introduction
+## Introduction du premier jour de conférence
 
-Voxxed Days Luxembourg TEAM (Pierre Antoine Grégoire)
+Pour ce premier talk, Pierre Antoine Grégoire nous a reparlé de ces 2 ans sans VoxxedLu (cause COVID).
 
-Après 2 ans d'annulation cause COVID
-Participants et speakers plus d'hommes, peut être encore plus depuis le COVID ? (beaucoup moins d'oratrices et dans les inscrits)
+Probablement un peu pour embrayer sur la keynote, il a ensuite rappelé qu'il y a encore en conférence beaucoup plus d'hommes que de femmes. Peut être même plus depuis la crise COVID ?
 
-## 09:15 - 10:00 - Pourquoi vous n'attirerez et ne retiendrez pas les femmes dans vos équipes tech !
+## Pourquoi vous n'attirerez et ne retiendrez pas les femmes dans vos équipes tech !
 
-Marcy CHAROLLOIS
+La keynote du premier jour a été faites pas Marcy CHAROLLOIS.
 
-Habitus
-Status quo
-Resistance au changement
-Courbe du deuil
-Attraction / Rétention des femmes
+Marcy a fait ce talk à Devoxx FR en avril dernier. J'avais été le voir et j'étais content de le RE-voir, car il y a beaucoup de messages à assimiler.
 
-On ne va pas vivre la même chose en tant que femme si on est cisgenre blanche ou handicapée voilée trans
+* Habitus
+* Status quo
+* Resistance au changement
+* Courbe du deuil
+* Attraction / Rétention des femmes
 
-We <3 devs
-1er année, je ne parle qu'à un groupe identique
-Appel à contributeur/trice : ligne édito groupe beaucoup plus hétérogène, reconversion, discrimination, racisme, etc.
+Marcy aborde plein de sujets importants pour comprendre POURQUOI tant de femmes quittent la tech.
 
-Habitus (famille école corps langage) ensemble homogène valeurs vêtements mimiques similaires
-Groupe majoritaire / Effet de halo (réassurance de votre première impression)
+Je ne spoil pas plus, **le talk est à voir**.
 
-Biais de sympathie / d'antipathie
+**Side note personnelle parce que ça shitpost régulièrement sur Twitter contre les speakers qui font un même talk dans plusieurs conf :** ce talk est un excellent exemple de talk qui DOIT être refait dans plusieurs conférences.
 
-What is holding back women in tech
 
-Allié (pas grand monde leve la main dans la salle)
+[//]: # "On ne va pas vivre la même chose en tant que femme si on est cisgenre blanche ou handicapée voilée trans We <3 devs 1er année, je ne parle qu'à un groupe identique Appel à contributeur/trice : ligne édito groupe beaucoup plus hétérogène, reconversion, discrimination, racisme, etc. Habitus (famille école corps langage) ensemble homogène valeurs vêtements mimiques similaires Groupe majoritaire / Effet de halo (réassurance de votre première impression) Biais de sympathie / d'antipathie What is holding back women in tech Allié (pas grand monde leve la main dans la salle) Mettre du sens (acceptation) Faut encourager quand on est dans le creux de la vague 52% des femmes pensent que leurs genre sera un problème dans leur carrière 90% / 60% pour postuler Attirer les femmes Féminiser les titres de postes Promettez du concret (accompagner les femmes) Mettez en avant les femmes (envoyer les femmes en conférence systématiquement Mentorat Sylvia Duckworth, roue des privilèges Poser des question d'abord, éviter les injonctions Transparence salariale Aide à la parentalité / assistance psychologique 67% des femmes pensent que le mentorat interne Encourager les femmes à prendre la parole Encourager les femmes à devenir role-model Entreprise femtech (100% féminines) / cercles de sororités"
 
-Mettre du sens (acceptation)
-Faut encourager quand on est dans le creux de la vague
+## Scaling a dormant Java application from 0 to 100 pods in seconds? Quarkus and Knative to the rescue!
 
-52% des femmes pensent que leurs genre sera un problème dans leur carrière
+Kevin DUBOIS, solution architect et developer advocate chez Redhat, nous a fait une présentation suivie d'une démo sur Quarkus et KNative.
 
-90% / 60% pour postuler
+Je ne m'étais pas trop intéressé à KNative, mais effectivement, dans le cas d'un microservice "event driven" (en mode serverless), c'est hyper intéressant et Quarkus+GraalVM (avec un démarrage d'une bête API REST en 0.016s) est réellement intéressant, par rapport à une JVM.
 
-Attirer les femmes
-Féminiser les titres de postes 
-Promettez du concret (accompagner les femmes)
-
-Mettez en avant les femmes (envoyer les femmes en conférence systématiquement)
-Mentorat
-
-Sylvia Duckworth, roue des privilèges
-
-Poser des question d'abord, éviter les injonctions
-
-Transparence salariale
-
-Aide à la parentalité / assistance psychologique
-
-67% des femmes pensent que le mentorat interne
-Encourager les femmes à prendre la parole
-Encourager les femmes à devenir role-model
-
-Entreprise femtech (100% féminines) / cercles de sororités
-
-## 10:15 - 11:15 - Scaling a dormant Java application from 0 to 100 pods in seconds? Quarkus and Knative to the rescue!
-Kevin DUBOIS
-
-Solution architect dans devloper advocate
-
-Horizontal scaling
-* Use only the ressources that we need
-* Rolling deployments (canary A/B, etc)
-* Handle loads / HA
-
-But your code needs to be able to handle it
-
-Docker compose => you can scale but not very scalable in prod
-Kubernetes => out of the pod autoscaling / Doesn't support scaling to 0 automatically
-
-Serverless  => app that don't require server management / deployment model exact demand
-
-At first => FaaS
-Then => containers (Knative, KEDA)
-Adds missing parts (enventing)
-
-Build serverless and event driven solutions
-Cloud agnostic, can scale to 0 because it listens to event
-Event driven architecture
-
-Knative 2 parts :
-- serving (deployment)
-- eventing (sources, brokers, triggers)
-
-Java high throughput, long running
-
-Quarkus => lightweight, particularly at the start phase
-based on java standard
-Useful in containers and serverless
-
-Quarkus + GraalVM => 12MB / 0.016s
-4.3s with standard JVM
-
-demo 0 to 100+ pods in seconds w/ Quarkus and Knative
-
-Openshift serverless
-
-For test => testcontainer / Quarkus / Dev services ???
+[//]: # "Horizontal scaling * Use only the ressources that we need * Rolling deployments (canary A/B, etc) * Handle loads / HA But your code needs to be able to handle it Docker compose => you can scale but not very scalable in prod Kubernetes => out of the pod autoscaling / Doesn't support scaling to 0 automatically Serverless  => app that don't require server management / deployment model exact demand At first => FaaS Then => containers (Knative, KEDA) Adds missing parts (enventing) Build serverless and event driven solutions Cloud agnostic, can scale to 0 because it listens to event Event driven architecture Knative 2 parts : - serving (deployment) - eventing (sources, brokers, triggers) Java high throughput, long running Quarkus => lightweight, particularly at the start phase based on java standard Useful in containers and serverless Quarkus + GraalVM => 12MB / 0.016s // 4.3s with standard JVM demo 0 to 100+ pods in seconds w/ Quarkus and Knative Openshift serverless For test => testcontainer / Quarkus / Dev services ???"
 
 ## 11:15 - 12:15 - Le GitOps dont vous êtes le héros
 Louis TOURNAYRE
@@ -267,6 +198,18 @@ Arnaud héritier rejoint docto...
 
 ## 17:00 - 18:00 - Compose v2 & Compose Specification
 Guillaume LOURS
-Main room
 
+Evolution de compose
+format 2 local
+format 3 cloud
 
+A cause de l'arrivée de swarm
+
+split sur le format de fichier et le run pour éviter ces problématiques (Compose specification)
+
+Compose v2.0.0-rc1 écrit en Go
+Compose v2 GA + EOL v1
+
+Les nouveautés dans compose (mount de la socket SSH pour l'agent, retrouver automatiquement les fichiers YAML de conf)
+
+dev envs
