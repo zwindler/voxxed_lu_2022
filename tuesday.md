@@ -70,22 +70,84 @@ Horizontal scaling
 
 But your code needs to be able to handle it
 
+Docker compose => you can scale but not very scalable in prod
+Kubernetes => out of the pod autoscaling / Doesn't support scaling to 0 automatically
+
+Serverless  => app that don't require server management / deployment model exact demand
+
+At first => FaaS
+Then => containers (Knative, KEDA)
+Adds missing parts (enventing)
+
+Build serverless and event driven solutions
+Cloud agnostic, can scale to 0 because it listens to event
+Event driven architecture
+
+Knative 2 parts :
+- serving (deployment)
+- eventing (sources, brokers, triggers)
+
+Java high throughput, long running
+
+Quarkus => lightweight, particularly at the start phase
+based on java standard
+Useful in containers and serverless
+
+Quarkus + GraalVM => 12MB / 0.016s
+4.3s with standard JVM
+
+demo 0 to 100+ pods in seconds w/ Quarkus and Knative
+
+Openshift serverless
+
+For test => testcontainer / Quarkus / Dev services ???
 
 ## 11:15 - 12:15 - Le GitOps dont vous êtes le héros
 Louis TOURNAYRE
-NT
+
+Kubernetes + Gitops
+
+Histoire : Le site marche pas (plus d'un jour à déployer, le thème arrive le lendemain)
+
+Table ronde des équipes
+* livraison de moins de choses et plus fréquentes
+* du temps pour la dette technique
+
+Les déploiements doivent être un non événement
+
+Document word pour les mises en production
+
+La suite est un livre dont on est le héros
+
+Quelques typos à lui remonter
+
+Dhall => 1 fichier 1 objet
+Très typé, haskell, fonctionnel
+Facilite les tests
+
+ArgoCD ne fait pas du Dhall, mais il y a un plugin pour (sidecar)
+
+kubeseal
 
 ## 12:45 - 13:00 - 🏡 Full-remote : comment réussir à travailler en équipe ?
 Lise QUESNEL
-Linux
+
+Pas pu y aller
 
 ## 13:15 - 13:30 - L'affordance ou comment l'utilisateur interprète et perçoit une interface
 Salvatore BERRITTELLA
-AmigaOS
+
+Pas pu y aller
 
 ## 13:45 - 14:45 - Choreography vs Orchestration in serverless microservices
 Guillaume LAFORGE
-Main room
+
+Orchestration (REST, not loosely coupled)
+Choregraphy (event-driven)
+
+Tant que c'est simple, ça va. Si on imagine un problème un peu plus compliqué, il arrive beaucoup de processus métiers qui peuvent devenir compliqué. L'approche événement c'est pas simple à décrire.
+
+Exemple avec une app de partage de photo, développé dans les 2 modes.
 
 ## 14:45 - 15:10 - Du code Terraform VRAIMENT factorisé avec Terragrunt
 Denis GERMAIN
