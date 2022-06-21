@@ -6,11 +6,10 @@ Main room
 Didier GIRARD
 Main room
 
-## 10:15 - 11:15 - Construire des solutions plus intelligentes sans expertise en machine learning
-Laurent PICARD
-Main room
+## 10:15 - 11:15 - REST, gRPC, GraphQL, Webhooks : dans quelles situations ? 
 
-(ou  REST, gRPC, GraphQL, Webhooks : dans quelles situations ? François DELBRAYELLE en Linux)
+François DELBRAYELLE
+Linux
 
 ## 11:15 - 12:15 - ???
 
