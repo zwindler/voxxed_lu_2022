@@ -150,16 +150,120 @@ Tant que c'est simple, ça va. Si on imagine un problème un peu plus compliqué
 Exemple avec une app de partage de photo, développé dans les 2 modes.
 
 ## 14:45 - 15:10 - Du code Terraform VRAIMENT factorisé avec Terragrunt
-Denis GERMAIN
-AmigaOS
+
+Ma conférence
 
 ## 15:10 - 15:35 - Indexer ses documents bureautique avec la suite Elastic et FSCrawler
 David PILATO
-AmigaOS
+
+Apache Tika pour aller chercher des métadonnées dans les documents open office, pdf, mp3, etc
+
+Pipeline inject dans ES
+
+On peut installer des plugins, notamment celui de tika
+
+Marche avec les images, il faut faire plein de trucs pour extraire les metadata
+
+Ya du texte dans du PDF, on peut ingérer et indexer ce texte
+
+A la place : FSCrawler
+
+Architecture à la logstash
+
+Mount 
+JSON / XML / Apache tika
+ES 6/7/8
+
+On envoie que les données utiles
+
+OCR avec tesseract, plus de formats dispos
+
+Workplace search => gratuit
+
+WP 7/8
 
 ## 16:00 - 17:00 - Comment Doctolib a traversé la crise du COVID : dernier rappel
+
 Nicolas MARTIGNOLE
-BSD
+
+6 principal engineers
+
+Docto n°1
+
+Quasiment toute la salle est passée par docto 
+Boring architecture
+
+La vaccination n'est pas seule responsable de la croissance de docto
+
+La vaccination a bouleverser la roadmap
+vaccination en allemange, le ministre de la santé a demandé à docto de le faire du jour au lendemain (coup de téléphone au patron)
+
+Quand ils savent qu'il va y avoir une intervention, ils peuvent gérer (20h non événement)
+
+Ils ont arrêté les tests de charge
+
+Comment gérer l'exceptionnel => n'importe qui peut déclencher une crise (tout le monde est formé)
+
+Service externe inaccessible
+Sentries après une mise à jour
+Lenteur
+...
+
+Cellule de crise (incident manager, communication manager, scribe, ...)
+
+Duty
+10h 14h 17h décide si master va en prod ou pas
+
+Datadog / newrelic, santé du logiciel
+
+12 juillet (3h30)
+Nicolas était scribe ce jour là
+Run => scale
+Base => lecture rame
+Aurora => 13 readers (max)
+
+Pas de plan B
+
+960k rdv confirmés
+1,4M le lendemain
+
+db.r5.24xlarge => 142k$/mois
+
+210k req / secondes
+
+Chiffrement au repos
+> Chiffrement de bout en bout pour certaines données médicales. Pas toutes.
+
+Les données ne nous appartiennent pas
+
+1- Soit on passe à 2 bases. 
+2- Soit remplacer Aurora pour une base plus élastique
+
+Mais garder "Simplicité du build, simplicité du run".
+
+Données sorties pour le 1.
+
+Tech radar, 2 semaines de discussions
+
+Modular monolith
+
+Les dev se plaignent de la CI (lenteur)
+- 40k test
+- 11 minutes => 25 minutes
+
+Commit à 22h pour éviter les commits des autres...
+
+Fintech => combien coute un commit 5000 commit 40k pour la CI 8€ par commit
+
+40% des couts d'infra pour du RUN
+
+La CI coute 17% des 60% restant
+
+Revenir sur des choses plus simples
+
+40000 tests sur un cluster à 500 mini machines qui lance les IHM de docto pour voir si on casse des trucs
+
+Arnaud héritier rejoint docto...
 
 ## 17:00 - 18:00 - Compose v2 & Compose Specification
 Guillaume LOURS
