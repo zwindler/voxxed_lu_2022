@@ -49,19 +49,71 @@ gRPC HTTP2
 REST => souvent des gros payload en JSON
 gRCP => requete protobuf ton payload binaires (plus petits)
 
-## 11:15 - 12:15 - ???
-
 ## 12:45 - 13:00 -  Lead Dev, 3 ans d'xp, et alors ?
 Lise QUESNEL
-Linux
+
+Pas forcément besoin d'avoir 10 ans d'XP, de ne plus coder ou d'être un homme.
+
+Lead dev à Nantes, avec le reste de l'équipe à Paris.
+
+C'est quoi lead dev ?
+C'est quoi la diff avec techlead
+
+techlead (expert technique)
+lead dev => accompagne l'équipe à la réussite du projet
+
+Référent technique
+
+Rôles partagés dans l'équipe
+
+Le lead dev a plus de réunion
+
+soft skills
 
 ## 13:15 - 13:30 -  Améliorer les compétences et les infrastructures avec les katas d'architecture
 Alexandre TOURET
-NT
+
+Worldline
+
+Software architecture for developers
+fundamentals of software architecture
+
+Les katas // coding games pour architectes
+
+Equipes de 6 environs, mixer des juniors, des ops, des seniors
+
+Faire des catas pour s'entrainer 
+https://speakerdeck.com/alexandretouret/voxxeddays-lux-22-ameliorer-les-competences-et-les-infrastructures-avec-les-katas-darchitecture
 
 ## 13:45 - 14:45 - Performance et prix, comment le hardware influence nos programmes : le journal du hard pour les dev
 Quentin ADAM
 Main room
+
+Qui connaît la ref des CPU sur ses serveurs
+Qui a fait de l'assembleur
+
+> Ah mais vous êtes quand même un peu vieux en fait
+
+C'est intéressant de savoir quel CPU on utilise, car en fonction du CPU on a différent jeux d'instructions
+
+Advanced Matrix Extensions (AMX) / AVX(2,512)
+
+Certains processeurs Intel contient le controler réseau 100 Gbps
+
+Acheter les processeurs avec les jeux d'instructions dont vous avez besoin
+
+Exherbo (source based, great skill builders)
+
+Kernel monolithique 15Mo /ubuntu 100Mo
+
+Rust recompile tout
+
+DPU sur les cartes réseaux et stockage
+
+European Chip Act (vente au détail des IP Intel)
+Construire des CPU sur le sol européen va être beaucoup plus simple
+
+Open compute projet
 
 ## 14:45 - 15:45 - Faire évoluer ses API HTTP, une approche en plusieurs étapes
 Nicolas FRÄNKEL
