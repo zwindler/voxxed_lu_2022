@@ -31,61 +31,49 @@ Kevin DUBOIS, solution architect et developer advocate chez Redhat, nous a fait 
 
 Je ne m'étais pas trop intéressé à KNative, mais effectivement, dans le cas d'un microservice "event driven" (en mode serverless), c'est hyper intéressant et Quarkus+GraalVM (avec un démarrage d'une bête API REST en 0.016s) est réellement intéressant, par rapport à une JVM.
 
+Un point dont n'a pas parlé Kevin est que certes, le couple Quarkus+GraalVM boot très vite. Cependant, on a tout un overhead apporté par Kubernetes pour l'affectation (Scheduling) et l'initialisation des Pods. En gros, ça marche, mais pas non plus à 0.016 secondes ;-)
+
 [//]: # "Horizontal scaling * Use only the ressources that we need * Rolling deployments (canary A/B, etc) * Handle loads / HA But your code needs to be able to handle it Docker compose => you can scale but not very scalable in prod Kubernetes => out of the pod autoscaling / Doesn't support scaling to 0 automatically Serverless  => app that don't require server management / deployment model exact demand At first => FaaS Then => containers (Knative, KEDA) Adds missing parts (enventing) Build serverless and event driven solutions Cloud agnostic, can scale to 0 because it listens to event Event driven architecture Knative 2 parts : - serving (deployment) - eventing (sources, brokers, triggers) Java high throughput, long running Quarkus => lightweight, particularly at the start phase based on java standard Useful in containers and serverless Quarkus + GraalVM => 12MB / 0.016s // 4.3s with standard JVM demo 0 to 100+ pods in seconds w/ Quarkus and Knative Openshift serverless For test => testcontainer / Quarkus / Dev services ???"
 
 ## 11:15 - 12:15 - Le GitOps dont vous êtes le héros
-Louis TOURNAYRE
 
-Kubernetes + Gitops
+Je ne vais pas pouvoir vous décrire totalement ce talk de Louis TOURNAYRE puisqu'il s'agit d'un talk "interactif" en mode "livre dont vous êtes le héros".
 
-Histoire : Le site marche pas (plus d'un jour à déployer, le thème arrive le lendemain)
+Ce talk est TRES TRES bien fait, l'expérience est super agréable, mêlant avec brio interactivité, choix multiples et démos lives.
 
-Table ronde des équipes
-* livraison de moins de choses et plus fréquentes
-* du temps pour la dette technique
+A l'issue de "l'histoire", nous avions vu comment déployer une application avec k3d, Gitops et ArgoCD avec en plus des fichiers Dhall et expérimenté les Sealed Secrets avec kubeseal (on a même aussi parlé de Hashicorp Vault).
 
-Les déploiements doivent être un non événement
+A voir absolument si ces technos vous intéressent.
 
-Document word pour les mises en production
+[//]: # "Kubernetes + Gitops / Histoire : Le site marche pas (plus d'un jour à déployer, le thème arrive le lendemain) / Table ronde des équipes / livraison de moins de choses et plus fréquentes / du temps pour la dette technique / Les déploiements doivent être un non événement / Document word pour les mises en production / La suite est un livre dont on est le héros / Quelques typos à lui remonter / Dhall => 1 fichier 1 objet / Très typé, haskell, fonctionnel / Facilite les tests / ArgoCD ne fait pas du Dhall, mais il y a un plugin pour (sidecar) / kubeseal"
 
-La suite est un livre dont on est le héros
+## Déjeuner
 
-Quelques typos à lui remonter
+J'avais prévu d'aller voir "🏡 Full-remote : comment réussir à travailler en équipe ?" de Lise QUESNEL et "L'affordance ou comment l'utilisateur interprète et perçoit une interface" de Salvatore BERRITTELLA, mais je n'ai finalement pas réussi à y aller.
 
-Dhall => 1 fichier 1 objet
-Très typé, haskell, fonctionnel
-Facilite les tests
+## Choreography vs Orchestration in serverless microservices
 
-ArgoCD ne fait pas du Dhall, mais il y a un plugin pour (sidecar)
+Guillaume LAFORGE de chez Google nous a fait un talk pour parler des avantages et des inconvénients de deux patterns :
+* Orchestration (REST, not loosely coupled)
+* Choregraphy (event-driven)
 
-kubeseal
+A première vue, l'approche Choregraphy semble plus efficace (meilleure résilience en cas de coupure d'un de composants de la chaine métier). Et tant que c'est simple, ça va. 
 
-## 12:45 - 13:00 - 🏡 Full-remote : comment réussir à travailler en équipe ?
-Lise QUESNEL
+Sauf que si on imagine un processus métier un peu plus compliqué. L'approche événement n'est pas simple à décrire et peut être difficile à debug, même lors de l'écriture du code.
 
-Pas pu y aller
+Guillaume a ensuite montré un exemple des deux approches avec une app de partage de photos, développé dans les 2 modes.
 
-## 13:15 - 13:30 - L'affordance ou comment l'utilisateur interprète et perçoit une interface
-Salvatore BERRITTELLA
+## Du code Terraform VRAIMENT factorisé avec Terragrunt
 
-Pas pu y aller
+A 14:45, c'était mon tour avec mon "Tool in action" sur Terragrunt, un wrapper de terraform.
 
-## 13:45 - 14:45 - Choreography vs Orchestration in serverless microservices
-Guillaume LAFORGE
+Tout s'est bien passé. 
 
-Orchestration (REST, not loosely coupled)
-Choregraphy (event-driven)
+> J'adore quand un "plan" se deroule sans accroc
 
-Tant que c'est simple, ça va. Si on imagine un problème un peu plus compliqué, il arrive beaucoup de processus métiers qui peuvent devenir compliqué. L'approche événement c'est pas simple à décrire.
+## Indexer ses documents bureautique avec la suite Elastic et FSCrawler
 
-Exemple avec une app de partage de photo, développé dans les 2 modes.
-
-## 14:45 - 15:10 - Du code Terraform VRAIMENT factorisé avec Terragrunt
-
-Ma conférence
-
-## 15:10 - 15:35 - Indexer ses documents bureautique avec la suite Elastic et FSCrawler
-David PILATO
+Juste après moi, David PILATO nous a présenté FSCrawler, un projet open source (qu'il développe en side project)
 
 Apache Tika pour aller chercher des métadonnées dans les documents open office, pdf, mp3, etc
 
@@ -113,7 +101,7 @@ Workplace search => gratuit
 
 WP 7/8
 
-## 16:00 - 17:00 - Comment Doctolib a traversé la crise du COVID : dernier rappel
+## Comment Doctolib a traversé la crise du COVID : dernier rappel
 
 Nicolas MARTIGNOLE
 
@@ -196,7 +184,7 @@ Revenir sur des choses plus simples
 
 Arnaud héritier rejoint docto...
 
-## 17:00 - 18:00 - Compose v2 & Compose Specification
+## Compose v2 & Compose Specification
 Guillaume LOURS
 
 Evolution de compose
