@@ -22,26 +22,27 @@ Je ne spoil pas plus, **le talk est à voir**.
 
 **Side note personnelle parce que ça shitpost régulièrement sur Twitter contre les speakers qui font un même talk dans plusieurs conf :** ce talk est un excellent exemple de talk qui DOIT être refait dans plusieurs conférences.
 
-
 [//]: # "On ne va pas vivre la même chose en tant que femme si on est cisgenre blanche ou handicapée voilée trans We <3 devs 1er année, je ne parle qu'à un groupe identique Appel à contributeur/trice : ligne édito groupe beaucoup plus hétérogène, reconversion, discrimination, racisme, etc. Habitus (famille école corps langage) ensemble homogène valeurs vêtements mimiques similaires Groupe majoritaire / Effet de halo (réassurance de votre première impression) Biais de sympathie / d'antipathie What is holding back women in tech Allié (pas grand monde leve la main dans la salle) Mettre du sens (acceptation) Faut encourager quand on est dans le creux de la vague 52% des femmes pensent que leurs genre sera un problème dans leur carrière 90% / 60% pour postuler Attirer les femmes Féminiser les titres de postes Promettez du concret (accompagner les femmes) Mettez en avant les femmes (envoyer les femmes en conférence systématiquement Mentorat Sylvia Duckworth, roue des privilèges Poser des question d'abord, éviter les injonctions Transparence salariale Aide à la parentalité / assistance psychologique 67% des femmes pensent que le mentorat interne Encourager les femmes à prendre la parole Encourager les femmes à devenir role-model Entreprise femtech (100% féminines) / cercles de sororités"
 
 ## Scaling a dormant Java application from 0 to 100 pods in seconds? Quarkus and Knative to the rescue!
 
 Kevin DUBOIS, solution architect et developer advocate chez Redhat, nous a fait une présentation suivie d'une démo sur Quarkus et KNative.
 
-Je ne m'étais pas trop intéressé à KNative, mais effectivement, dans le cas d'un microservice "event driven" (en mode serverless), c'est hyper intéressant et Quarkus+GraalVM (avec un démarrage d'une bête API REST en 0.016s) est réellement intéressant, par rapport à une JVM.
+Je ne m'étais pas trop intéressé à KNative, mais effectivement, dans le cas d'un microservice "event driven" (en mode serverless), c'est hyper intéressant et Quarkus+GraalVM (avec un démarrage d'une bête API REST en 0.016s) est réellement utile, par rapport à une JVM.
 
-Un point dont n'a pas parlé Kevin est que certes, le couple Quarkus+GraalVM boot très vite. Cependant, on a tout un overhead apporté par Kubernetes pour l'affectation (Scheduling) et l'initialisation des Pods. En gros, ça marche, mais pas non plus à 0.016 secondes ;-)
+Un point dont n'a pas parlé Kevin est que certes, le couple Quarkus+GraalVM boote très vite, mais qu'on a tout un overhead apporté par Kubernetes pour l'affectation (Scheduling) et l'initialisation des Pods. 
+
+En gros, ça marche, mais pas non plus à 0.016 secondes ;-)
 
 [//]: # "Horizontal scaling * Use only the ressources that we need * Rolling deployments (canary A/B, etc) * Handle loads / HA But your code needs to be able to handle it Docker compose => you can scale but not very scalable in prod Kubernetes => out of the pod autoscaling / Doesn't support scaling to 0 automatically Serverless  => app that don't require server management / deployment model exact demand At first => FaaS Then => containers (Knative, KEDA) Adds missing parts (enventing) Build serverless and event driven solutions Cloud agnostic, can scale to 0 because it listens to event Event driven architecture Knative 2 parts : - serving (deployment) - eventing (sources, brokers, triggers) Java high throughput, long running Quarkus => lightweight, particularly at the start phase based on java standard Useful in containers and serverless Quarkus + GraalVM => 12MB / 0.016s // 4.3s with standard JVM demo 0 to 100+ pods in seconds w/ Quarkus and Knative Openshift serverless For test => testcontainer / Quarkus / Dev services ???"
 
-## 11:15 - 12:15 - Le GitOps dont vous êtes le héros
+## Le GitOps dont vous êtes le héros
 
 Je ne vais pas pouvoir vous décrire totalement ce talk de Louis TOURNAYRE puisqu'il s'agit d'un talk "interactif" en mode "livre dont vous êtes le héros".
 
 Ce talk est TRES TRES bien fait, l'expérience est super agréable, mêlant avec brio interactivité, choix multiples et démos lives.
 
-A l'issue de "l'histoire", nous avions vu comment déployer une application avec k3d, Gitops et ArgoCD avec en plus des fichiers Dhall et expérimenté les Sealed Secrets avec kubeseal (on a même aussi parlé de Hashicorp Vault).
+A l'issue de notre "histoire" (puisqu'il y a plusieurs branches possibles), nous avions vu comment déployer une application avec k3d, Gitops et ArgoCD avec en plus des fichiers Dhall et expérimenté les Sealed Secrets avec kubeseal (on a même aussi parlé brièvement de Hashicorp Vault, j'en parle dans [cet article](/2020/08/31/gerez-vos-secrets-kubernetes-dans-vault/)).
 
 A voir absolument si ces technos vous intéressent.
 
@@ -57,7 +58,7 @@ Guillaume LAFORGE de chez Google nous a fait un talk pour parler des avantages e
 * Orchestration (REST, not loosely coupled)
 * Choregraphy (event-driven)
 
-A première vue, l'approche Choregraphy semble plus efficace (meilleure résilience en cas de coupure d'un de composants de la chaine métier). Et tant que c'est simple, ça va. 
+A première vue, l'approche Choregraphy semble plus efficace (meilleure résilience en cas de coupure d'un de composants de la chaîne métier). Et tant que c'est simple, ça va. 
 
 Sauf que si on imagine un processus métier un peu plus compliqué. L'approche événement n'est pas simple à décrire et peut être difficile à debug, même lors de l'écriture du code.
 
@@ -67,13 +68,13 @@ Guillaume a ensuite montré un exemple des deux approches avec une app de partag
 
 A 14:45, c'était mon tour avec mon "Tool in action" sur Terragrunt, un wrapper de terraform.
 
-Tout s'est bien passé. 
+Tout s'est bien passé même si j'étais super stressé et un peu speed (talk calibré pour 25-30 minutes, j'en avais 20). 
 
-> J'adore quand un "plan" se deroule sans accroc
+> J'adore quand un "plan" se déroule sans accroc
 
 ## Indexer ses documents bureautique avec la suite Elastic et FSCrawler
 
-Juste après moi, David PILATO nous a présenté FSCrawler, un projet open source (qu'il développe en side project)
+Juste après moi, David PILATO nous a présenté [FSCrawler](https://github.com/dadoonet/fscrawler), un projet open source (qu'il développe en side project)
 
 Apache Tika pour aller chercher des métadonnées dans les documents open office, pdf, mp3, etc
 
@@ -185,19 +186,9 @@ Revenir sur des choses plus simples
 Arnaud héritier rejoint docto...
 
 ## Compose v2 & Compose Specification
-Guillaume LOURS
 
-Evolution de compose
-format 2 local
-format 3 cloud
+Guillaume LOURS a fait un tour d'horizon de l'évolution de Compose depuis Fig et l'apparition de la spec pour les fichiers de configuration Compose.
 
-A cause de l'arrivée de swarm
+C'était intéressant d'avoir l'historique d'avoir plus de détails sur les features qui étaient les plus demandées (qu'ils ont implémenté dans Compose v2), mais n'étant pas utilisateur de Compose je ne suis pas forcément le meilleur public pour juger ;-).
 
-split sur le format de fichier et le run pour éviter ces problématiques (Compose specification)
-
-Compose v2.0.0-rc1 écrit en Go
-Compose v2 GA + EOL v1
-
-Les nouveautés dans compose (mount de la socket SSH pour l'agent, retrouver automatiquement les fichiers YAML de conf)
-
-dev envs
+[//]: # "Evolution de compose / format 2 local / format 3 cloud / A cause de l'arrivée de swarm /split sur le format de fichier et le run pour éviter ces problématiques (Compose specification) /Compose v2.0.0-rc1 écrit en Go /Compose v2 GA + EOL v1 / Les nouveautés dans compose (mount de la socket SSH pour l'agent, retrouver automatiquement les fichiers YAML de conf) / dev env"
